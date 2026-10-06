@@ -30,6 +30,9 @@ function updateViewMainPage() {
         `;
     };
 
+
+
+    // EDIT MODE
     let groups = ``;
 
     for (let i = 0; i < model.groups.length; i++) {
