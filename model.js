@@ -7,9 +7,10 @@ const model = {
         mainPage: {
             searchText: '',
             selectedGroupId: null,
-            editMode: false,
         },
         editNotes: {
+            editMode: false,
+            addMode: false,
             noteId: null,
             date: '',
             text: '',
