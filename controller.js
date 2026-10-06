@@ -13,7 +13,7 @@ function cancelEdit(){
 
         editNotes.editMode = false;
         editNotes.addMode = false;
-        
+
         editNotes.noteId = null;
         editNotes.date = '';
         editNotes.text = '';
@@ -21,7 +21,6 @@ function cancelEdit(){
         editNotes.lastUpdated = '';
         editNotes.deadline = '';
         editNotes.finished = false;
-    },
 
     updateView();
     

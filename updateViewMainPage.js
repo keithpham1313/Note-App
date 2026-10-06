@@ -132,7 +132,7 @@ function updateViewMainPage() {
         html += /*HTML*/`
             </table>
 
-    `;
+        `;
     document.getElementById('app').innerHTML = html;
 }
 
