@@ -1,0 +1,62 @@
+/* Hele siden */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 30px;
+    color: #333;
+}
+
+/* Selve app-området */
+#app {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Overskrift */
+h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #2c3e50;
+}
+
+/* Tabell */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Tabellceller */
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Overskriftsrad */
+th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* Annenhver rad får litt annen bakgrunn */
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Når du holder musen over en rad */
+tr:hover {
+    background-color: #eef4ff;
+}
+
+/* Litt rundere hjørner på tabellen */
+table {
+    border-radius: 8px;
+    overflow: hidden;
+}

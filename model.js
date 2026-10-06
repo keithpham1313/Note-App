@@ -7,6 +7,7 @@ const model = {
         mainPage: {
             searchText: '',
             selectedGroupId: null,
+            editMode: false,
         },
         editNotes: {
             noteId: null,
