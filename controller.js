@@ -129,3 +129,17 @@ function autoLoadDate(){
 
     */
 
+function searchInput(thisInput){
+    model.viewState.mainPage.searchText = thisInput;
+
+    updateView();
+
+}
+
+function searchButton(){
+    let searchInput = document.querySelector('input');
+
+    model.viewState.mainPage.searchText = searchInput.value;
+    
+    updateView();
+}

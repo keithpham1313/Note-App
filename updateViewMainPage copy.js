@@ -37,15 +37,11 @@ function updateViewMainPage() {
         `;
     }
 
-    //Finn ut hva brukeren har skrevet
     let searchText = model.viewState.mainPage.searchText.toLowerCase();
-
-    //Finn bare notater som passer søket
     let filteredNotes = model.data.filter(
             note => note.text.toLowerCase().includes(searchText)
         );
 
-    //Endret model.data.length til filteredNotes.length
     for (let i = 0; i < model.data.length; i++) {
 
         if(model.viewState.editNotes.editMode &&
