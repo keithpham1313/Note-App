@@ -52,7 +52,7 @@ function resetEditState(){
         editNotes.noteId = null;
         editNotes.date = '';
         editNotes.text = '';
-        editNotes.selectedGroupId = null;
+        editNotes.selectedGroupId = 'Ingen';
         editNotes.lastUpdated = '';
         editNotes.deadline = '';
         editNotes.finished = false;

@@ -45,7 +45,11 @@ function updateViewMainPage() {
                         placeholder="Skriv notater...">
                     </td>
                     
-                    <td><select>${groups}</select></td>
+                    <td>
+                        <select onchange="model.viewState.editNotes.selectedGroupId = this.value">
+                            ${groups}
+                        </select>
+                    </td>
 
                     <td>${autoLoadDate()}</td>
 
@@ -98,7 +102,7 @@ function updateViewMainPage() {
                 </tr>
     `;
 
-    //Input-feltene dukker opp på nederste rad
+    //Dette blir satt opp kun for at Input-feltene dukker opp på nederste rad
         if(model.viewState.editNotes.addMode){
                 html += /*HTML*/`
                 <tr>
@@ -112,7 +116,9 @@ function updateViewMainPage() {
                         placeholder="Skriv notater...">
                     </td>
                     
-                    <td><select>${groups}</select></td>
+                    <td><select onchange="model.viewState.editNotes.selectedGroupId = this.value">
+                        ${groups}
+                    </select></td>
 
                     <td>${autoLoadDate()}</td>
 

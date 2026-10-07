@@ -15,7 +15,7 @@ const model = {
             noteId: null,
             date: '',
             text: '',
-            selectedGroupId: null,
+            selectedGroupId: 'Ingen',
             lastUpdated: '',
             deadline: '',
             finished: false,
@@ -52,6 +52,7 @@ const model = {
     ],
 
     groups: [
+        { id: 0, category: "Ingen" },
         { id: 1, category: "Skole" },
         { id: 2, category: "Jobb" },
         { id: 3, category: "Privat" },
