@@ -1,5 +1,5 @@
 function updateViewMainPage() {
-    
+
     let html = /*HTML*/`
     <h2>Min Notat-App</h2>
     <br>
@@ -42,15 +42,15 @@ function updateViewMainPage() {
 
     //Finn bare notater som passer søket
     let filteredNotes = model.data.filter(
-            note => note.text.toLowerCase().includes(searchText)
-        );
-    
+        note => note.text.toLowerCase().includes(searchText)
+    );
+
     //Filtereing i første rad per kolonne
-    filteredNotes.sort((a, b) =>{
-        if(model.viewState.mainPage.sortAscending){
+    filteredNotes.sort((a, b) => {
+        if (model.viewState.mainPage.sortAscending) {
             return a.date.localeCompare(b.date);
         }
-        else{
+        else {
             return b.date.localeCompare(a.date);
         }
     });
@@ -58,8 +58,8 @@ function updateViewMainPage() {
     //Endret model.data.length til filteredNotes.length
     for (let i = 0; i < filteredNotes.length; i++) {
 
-        if(model.viewState.editNotes.editMode &&
-            model.viewState.editNotes.noteId === filteredNotes[i].id){
+        if (model.viewState.editNotes.editMode &&
+            model.viewState.editNotes.noteId === filteredNotes[i].id) {
             html += /*HTML*/`
                 <tr>
                     <td><input 
@@ -99,8 +99,8 @@ function updateViewMainPage() {
                 </tr>
             `;
         }
-    else{
-        html += /*HTML*/ `
+        else {
+            html += /*HTML*/ `
 
                 <tr>
                     <td>${new Date(filteredNotes[i].date).toLocaleDateString('no-NO')}</td>
@@ -117,23 +117,9 @@ function updateViewMainPage() {
         }
     };
 
-    html += /*HTML*/ `
-                
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button onclick="addNotes()">Legg til</button></td>
-                </tr>
-    `;
-
     //Dette blir satt opp kun for at Input-feltene dukker opp på nederste rad
-        if(model.viewState.editNotes.addMode){
-                html += /*HTML*/`
+    if (model.viewState.editNotes.addMode) {
+        html += /*HTML*/`
                 <tr>
                     <td><input 
                         type="date" 
@@ -165,11 +151,27 @@ function updateViewMainPage() {
                     <td><button onclick="resetEditState()">Avbryt</button></td>
                 </tr>
                 `;
-        }    
-        html += /*HTML*/`
+    }
+    else {
+        html += /*HTML*/ `
+                
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button onclick="addNotes()">Legg til</button></td>
+            </tr>
+
             </table>
 
-        `;
+            `;
+
+    }
+
     document.getElementById('app').innerHTML = html;
 }
 

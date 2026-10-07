@@ -48,9 +48,9 @@ const model = {
         { id: 14, date: "2026-09-30", text: "Se den nye filmen", category: "Hobby", lastUpdated: "2026-10-01", deadLine: "2026-10-05", finished: true },
         { id: 15, date: "2026-10-04", text: "Teste ut en ny oppskrift", category: "Hobby", lastUpdated: "2026-10-04", deadLine: "2026-10-09", finished: false },
 
-        { id: 16, date: "2026-10-01", text: "Idé til en ny nettside", category: "Idéer", lastUpdated: "2026-10-03", deadLine: "", finished: false },
-        { id: 17, date: "2026-09-28", text: "Lage en app for treningsplan", category: "Idéer", lastUpdated: "2026-10-02", deadLine: "", finished: false },
-        { id: 18, date: "2026-10-05", text: "Idé til et lite JavaScript-spill", category: "Idéer", lastUpdated: "2026-10-05", deadLine: "", finished: false },
+        { id: 16, date: "2026-10-01", text: "Idé til en ny nettside", category: "Idéer", lastUpdated: "2026-10-03", deadLine: "2026-12-01", finished: false },
+        { id: 17, date: "2026-09-28", text: "Lage en app for treningsplan", category: "Idéer", lastUpdated: "2026-10-02", deadLine: "2026-12-01", finished: false },
+        { id: 18, date: "2026-10-05", text: "Idé til et lite JavaScript-spill", category: "Idéer", lastUpdated: "2026-10-05", deadLine: "2026-12-01", finished: false },
     ],
 
     groups: [
