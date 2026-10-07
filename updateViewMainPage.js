@@ -62,7 +62,7 @@ function updateViewMainPage() {
                     </td>
 
                     <td><button onclick="saveEdit()">Lagre</button></td>
-                    <td><button onclick="cancelEdit()">Avbryt</button></td>
+                    <td><button onclick="resetEditState()">Avbryt</button></td>
                 </tr>
             `;
         }
@@ -70,11 +70,11 @@ function updateViewMainPage() {
         html += /*HTML*/ `
 
                 <tr>
-                    <td>${model.data[i].date}</td>
+                    <td>${new Date(model.data[i].date).toLocaleDateString('no-NO')}</td>
                     <td>${model.data[i].text}</td>
                     <td>${model.data[i].category}</td>
-                    <td>${model.data[i].lastUpdated}</td>
-                    <td>${model.data[i].deadLine}</td>
+                    <td>${new Date(model.data[i].lastUpdated).toLocaleDateString('no-NO')}</td>
+                    <td>${new Date(model.data[i].deadLine).toLocaleDateString('no-NO')}</td>
                     <td>${model.data[i].finished}</td>
                     <td><button onclick="editNote(${model.data[i].id})">Rediger</button></td>
                     <td><button onclick="deleteNote(${model.data[i].id})">Slett</button></td>
@@ -97,6 +97,8 @@ function updateViewMainPage() {
                     <td><button onclick="addNotes()">Legg til</button></td>
                 </tr>
     `;
+
+    //Input-feltene dukker opp på nederste rad
         if(model.viewState.editNotes.addMode){
                 html += /*HTML*/`
                 <tr>
@@ -125,7 +127,7 @@ function updateViewMainPage() {
                     </td>
 
                     <td><button onclick="saveEdit()">Lagre</button></td>
-                    <td><button onclick="cancelEdit()">Avbryt</button></td>
+                    <td><button onclick="resetEditState()">Avbryt</button></td>
                 </tr>
                 `;
         }    
@@ -137,3 +139,18 @@ function updateViewMainPage() {
 }
 
 updateView();
+
+/* 
+Vi skifter fra:
+    
+    <td>${model.data[i].date}</td>
+
+Til:
+
+    <td>${new Date(model.data[i].date).toLocaleDateString('no-NO')}</td>
+
+Hvorfor? 
+    For å at datoen formateres til det norske formatet når det vises.
+    Det er i dette formatet 2026-10-07, og konvertert og viser 07.10.2026
+*/
+

@@ -5,10 +5,45 @@ function addNotes() {
 }
 
 function saveEdit(){
+    let editNotes = model.viewState.editNotes;
 
+    if(editNotes.addMode){
+        
+        model.data.push({
+        
+            id: model.data.length + 1,
+            date: editNotes.date,
+            text: editNotes.text,
+            category: editNotes.selectedGroupId,
+            lastUpdated: autoLoadDate(),
+            deadLine: editNotes.deadline,
+            finished: editNotes.finished,
+        
+        });
+    }
+
+    else if(editNotes.editMode){
+        
+        const selectedNote = findObjectById(model.data, editNotes.noteId);
+
+        if(selectedNote === null){
+            return;
+        }
+
+        selectedNote.date = editNotes.date;
+        selectedNote.text = editNotes.text;
+        selectedNote.category = editNotes.selectedGroupId;
+        selectedNote.lastUpdated = autoLoadDate();
+        selectedNote.deadLine = editNotes.deadline;
+        selectedNote.finished = editNotes.finished;
+
+    }
+
+    resetEditState();
+    updateView();
 }
 
-function cancelEdit(){
+function resetEditState(){
     let editNotes = model.viewState.editNotes;
 
         editNotes.editMode = false;
@@ -76,5 +111,21 @@ function deleteNote(noteId){
 }
 
 function autoLoadDate(){
-    //Date-time funksjon
+    return new Date().toISOString().split('T')[0];
 }
+    /*
+    let today = new Date();
+        return today.toISOString().split('T')[0];
+    
+        // For å få formatet "2026-10-07" ellers holder det med bare today
+
+    F.eks. 2026-10-07T08:30:15.123Z
+
+        .toISOString() gjør det om til en tekst
+        .split('T')[0] tar bare med delen før T
+
+    Vi kan også bare ha dette hvis vi vil at formatet skal være på norsk med en gang:
+        return new Date().toLocaleDateString('no-NO');
+
+    */
+

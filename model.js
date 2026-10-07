@@ -11,6 +11,7 @@ const model = {
         editNotes: {
             editMode: false,
             addMode: false,
+            
             noteId: null,
             date: '',
             text: '',
