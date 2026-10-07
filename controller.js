@@ -143,3 +143,11 @@ function searchButton(){
     
     updateView();
 }
+
+function sortNotes(){
+    //toggle for sortAscending true/false
+    model.viewState.mainPage.sortAscending =
+        !model.viewState.mainPage.sortAscending;
+
+    updateView();
+}

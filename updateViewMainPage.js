@@ -14,12 +14,12 @@ function updateViewMainPage() {
     </p>
     <table>
         <tr>
-            <th>Dato</th>
+            <th onclick="sortNotes('date')">Dato</th>
             <th>Tekst</th>
-            <th>Kategori</th>
-            <th>Sist Oppdatert</th>
-            <th>Frist</th>
-            <th>Ferdig</th>
+            <th onclick="sortNotes('category')">Kategori</th>
+            <th onclick="sortNotes('lastUpdated')">Sist Oppdatert</th>
+            <th onclick="sortNotes('deadLine')">Frist</th>
+            <th onclick="sortNotes('finished')">Ferdig</th>
             <th></th>
             <th></th>
         </tr>
@@ -44,12 +44,22 @@ function updateViewMainPage() {
     let filteredNotes = model.data.filter(
             note => note.text.toLowerCase().includes(searchText)
         );
+    
+    //Filtereing i første rad per kolonne
+    filteredNotes.sort((a, b) =>{
+        if(model.viewState.mainPage.sortAscending){
+            return a.date.localeCompare(b.date);
+        }
+        else{
+            return b.date.localeCompare(a.date);
+        }
+    });
 
     //Endret model.data.length til filteredNotes.length
-    for (let i = 0; i < model.data.length; i++) {
+    for (let i = 0; i < filteredNotes.length; i++) {
 
         if(model.viewState.editNotes.editMode &&
-            model.viewState.editNotes.noteId === model.data[i].id){
+            model.viewState.editNotes.noteId === filteredNotes[i].id){
             html += /*HTML*/`
                 <tr>
                     <td><input 
@@ -93,14 +103,14 @@ function updateViewMainPage() {
         html += /*HTML*/ `
 
                 <tr>
-                    <td>${new Date(model.data[i].date).toLocaleDateString('no-NO')}</td>
-                    <td>${model.data[i].text}</td>
-                    <td>${model.data[i].category}</td>
-                    <td>${new Date(model.data[i].lastUpdated).toLocaleDateString('no-NO')}</td>
-                    <td>${new Date(model.data[i].deadLine).toLocaleDateString('no-NO')}</td>
-                    <td>${model.data[i].finished}</td>
-                    <td><button onclick="editNote(${model.data[i].id})">✏️Rediger</button></td>
-                    <td><button onclick="deleteNote(${model.data[i].id})">🗑️Slett</button></td>
+                    <td>${new Date(filteredNotes[i].date).toLocaleDateString('no-NO')}</td>
+                    <td>${filteredNotes[i].text}</td>
+                    <td>${filteredNotes[i].category}</td>
+                    <td>${new Date(filteredNotes[i].lastUpdated).toLocaleDateString('no-NO')}</td>
+                    <td>${new Date(filteredNotes[i].deadLine).toLocaleDateString('no-NO')}</td>
+                    <td>${filteredNotes[i].finished}</td>
+                    <td><button onclick="editNote(${filteredNotes[i].id})">✏️Rediger</button></td>
+                    <td><button onclick="deleteNote(${filteredNotes[i].id})">🗑️Slett</button></td>
                 </tr>
 
         `;

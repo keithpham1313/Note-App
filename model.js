@@ -7,6 +7,8 @@ const model = {
         mainPage: {
             searchText: '',
             selectedGroupId: null,
+
+            sortAscending: true,
         },
         editNotes: {
             editMode: false,
