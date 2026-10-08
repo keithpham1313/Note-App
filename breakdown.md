@@ -1,0 +1,13 @@
+Funksjoner:
+- Tabell
+- Rediger (spesifikk rad)
+- Slett
+- Legge til
+- Lagre
+- Avbryt
+- Søkefelt m/knapp for kun notater
+- Sortering per kolonne
+- Visning av Legg til/Lagre/Avbryt
+- Datoformat
+- Automatisk legge til dato
+- Hjelpefunksjon
